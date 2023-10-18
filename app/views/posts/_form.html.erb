@@ -1,0 +1,9 @@
+<%= form_with model: @post do |f| %>
+  <%= f.label :title, class: "inputlabel" %>
+  <%= f.text_field :title, autofocus: true, autocomplete: false, class: "inputfield" %>
+  <%= f.label :body, class: "inputlabel" %>
+  <%= f.text_area :body, autocomplete: false, rows: 30, class: "inputfield" %>
+
+  <%= f.submit "Create post", class: "btn-primary justify-self-end" %>
+
+<% end %>

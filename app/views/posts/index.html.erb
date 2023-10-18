@@ -1,0 +1,23 @@
+<h1 class="block">Latest articles</h1>
+
+<% @post.each do |p| %>
+
+  <h3><%= p.title %></h3>
+  <div>
+    <%= p.body %>
+  </div>
+
+  <% if user_signed_in? %>
+    <p><%= p.user.email %></p>
+
+  <% end %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= button_to "Log out",
+  destroy_user_session_path,
+  method: :delete,
+  class: "btn-primary" %>
+<% else %>
+  <%= button_to "Log in", new_user_session_path, class: "btn-primary" %>
+<% end %>
